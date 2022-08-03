@@ -1,0 +1,42 @@
+<html>
+
+<head>
+  <title>InteBot</title>
+</head>
+
+<body>
+  <!-- Intebot -->
+  <!-- Este es el código que copiará en su archivo index, para habilitar intebot en su sitio web -->
+  <div class="headerInteBot">
+    <div class="buttonCloseChat" title="Cerrar"></div>
+    <img id="image-header" class="moveBotIcon">
+    <p id="title-header" class="botTopName"></p>
+  </div>
+  <div id="inteBot" role="main" class="inteBot"></div>
+  <div class="buttonBubble"></div>
+
+  <script type="module">
+    import config from "./config/configuration.js";
+
+    let webchat = document.createElement('script');
+    webchat.setAttribute('src', `${config.scripts_src}webchat.js`);
+    document.head.appendChild(webchat);
+
+    let bubble = document.createElement('script');
+    bubble.setAttribute('src', `${config.scripts_src}bubble.js`);
+    document.head.appendChild(bubble);
+
+    let checkExist = setInterval(function () {
+      if (window.WebChat) {
+        clearInterval(checkExist);
+        let intebot = document.createElement('script');
+        intebot.setAttribute('src', `${config.scripts_src}inteBot.js`);
+        intebot.setAttribute('type', 'module');
+        document.head.appendChild(intebot);
+      }
+    }, 100);
+  </script>
+  <!-- Intebot -->
+</body>
+
+</html>

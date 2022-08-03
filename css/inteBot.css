@@ -1,0 +1,145 @@
+:root {
+    --header-bg: #000;
+    --chat-button: url("");
+    --close-button: url("");
+    --font-name: none;
+    --font-src: url("");
+}
+
+/** Add font family */
+@font-face {
+    font-family: var(--font-name);
+    src: var(--font-src);
+}
+
+/* Fix menu icon and send pointer */
+.css-1ueqw9g.webchat__icon-button {
+    cursor: pointer;
+}
+/* Open and close bot style */
+.inteBot {
+    visibility: hidden;
+    position: fixed;
+    border-radius: 10px 10px 0 0;
+    bottom: 80px;
+    right: 10px;
+    cursor: pointer;
+    height: 400px;
+    z-index: -1;
+    width: 430px;
+    font-family: "Arial, Helvetica, sans-serif";
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+        0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
+        0 16px 16px rgba(0, 0, 0, 0.12);
+}
+.headerInteBot {
+    visibility: hidden;
+    position: fixed;
+    bottom: 480px;
+    right: 10px;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    height: 70px;
+    width: 430px;
+    z-index: 9010;
+    background-color: var(--header-bg);
+}
+
+.buttonCloseChat {
+    visibility: hidden;
+    bottom: 80px;
+}
+.inteBot.open {
+    visibility: visible;
+    z-index: 9000;
+}
+.headerInteBot.open {
+    visibility: visible;
+}
+/* Button bubble style */
+.buttonBubble {
+    position: fixed;
+    border: transparent;
+    bottom: 10px;
+    right: 10px;
+    height: 63px;
+    width: 130px;
+    z-index: 9000;
+    cursor: pointer;
+    background-color: transparent;
+    background-image: var(--chat-button);
+    background-repeat: no-repeat;
+}
+.buttonBubble.open {
+    position: fixed;
+}
+/* State bot style */
+.moveBotIcon {
+    visibility: hidden;
+}
+.buttonCloseChat {
+    visibility: hidden;
+}
+.botTopName {
+    visibility: hidden;
+}
+.botStatus {
+    visibility: hidden;
+}
+.botStatus:before {
+    visibility: hidden;
+}
+
+.headerInteBot.open .moveBotIcon {
+    visibility: visible;
+    position: relative;
+    left: 20px;
+    top: 2px;
+}
+.headerInteBot.open .botTopName {
+    visibility: visible;
+    position: relative;
+    left: 95px;
+    bottom: 50px;
+    font-weight: bold;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-size-adjust: 12;
+}
+.headerInteBot.open .botStatus {
+    visibility: visible;
+    position: relative;
+    left: 100px;
+    bottom: 60px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-size-adjust: 12;
+}
+.headerInteBot.open .botStatus:before {
+    visibility: visible;
+    content: "";
+    position: relative;
+    display: inline-flex;
+    top: 1px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: rgb(0, 255, 0);
+}
+/* Button close chat style */
+.headerInteBot.open .buttonCloseChat.open {
+    visibility: visible;
+    position: fixed;
+    bottom: 520px;
+    right: 20px;
+    height: 17px;
+    width: 17px;
+    z-index: 9000;
+    cursor: pointer;
+    background-image: var(--close-button);
+}
+
+/* text box style  */
+.webchat__send-box-text-box {
+    margin-bottom: 0;
+}
