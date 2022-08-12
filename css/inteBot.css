@@ -3,13 +3,12 @@
     --chat-button: url("");
     --close-button: url("");
     --font-name: none;
-    --font-src: url("");
+    --font-size: none;
+    --btn-color: #000;
 }
 
-/** Add font family */
-@font-face {
-    font-family: var(--font-name);
-    src: var(--font-src);
+body {
+    font-size: var(--font-size);
 }
 
 /* Fix menu icon and send pointer */
@@ -27,7 +26,7 @@
     height: 400px;
     z-index: -1;
     width: 430px;
-    font-family: "Arial, Helvetica, sans-serif";
+    font-family: var(--font-name);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
         0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
         0 16px 16px rgba(0, 0, 0, 0.12);
@@ -89,6 +88,9 @@
 .botStatus:before {
     visibility: hidden;
 }
+.chat-powered {
+    visibility: hidden;
+}
 
 .headerInteBot.open .moveBotIcon {
     visibility: visible;
@@ -103,8 +105,8 @@
     bottom: 50px;
     font-weight: bold;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    text-size-adjust: 12;
+    font-family: var(--font-name);
+    font-size: medium;
 }
 .headerInteBot.open .botStatus {
     visibility: visible;
@@ -112,7 +114,7 @@
     left: 100px;
     bottom: 60px;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-name);
     text-size-adjust: 12;
 }
 .headerInteBot.open .botStatus:before {
@@ -126,6 +128,24 @@
     border-radius: 50%;
     background: rgb(0, 255, 0);
 }
+/* Chat powered by  */
+.headerInteBot.open .chat-powered {
+    visibility: visible;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    bottom: 42px;
+    background-color: white;
+    margin: 0;
+    padding: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+.headerInteBot.open .chat-powered > a {
+    color: #39368b !important;
+    text-decoration: none;
+}
+
 /* Button close chat style */
 .headerInteBot.open .buttonCloseChat.open {
     visibility: visible;
@@ -142,4 +162,22 @@
 /* text box style  */
 .webchat__send-box-text-box {
     margin-bottom: 0;
+}
+
+/* adaptative card button color */
+.ac-container .ac-actionSet > button.ac-pushButton.style-positive {
+    background-color: var(--btn-color);
+    color: white;
+}
+.ac-container .ac-actionSet > button.ac-pushButton.style-positive:hover,
+.ac-container .ac-actionSet > button.ac-pushButton.style-positive:active {
+    background-color: var(--btn-color);
+    opacity: 0.7;
+    color: white;
+}
+
+/* adaptative card suggested action button */
+#inteBot .webchat__suggested-action > button.webchat__suggested-action__button {
+    border-color: var(--btn-color);
+    color: var(--btn-color);
 }

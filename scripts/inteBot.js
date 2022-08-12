@@ -66,7 +66,6 @@ import config from "../config/configuration.js";
     }
   });
 
-
   // ============== Font set function
   function fontFamily(fonts) {
     return fonts.map(font => `'${font}'`).join(', ');
@@ -75,8 +74,8 @@ import config from "../config/configuration.js";
   // ============== Bot style options
   const styleOptions = {
     primaryFont: fontFamily([`${config.font_name}`, 'Arial', 'Helvetica', 'sans-serif']),
-    botAvatarImage: `./icons/${config.bot_avatar}`,
-    userAvatarImage: `./icons/${config.user_avatar}`,
+    botAvatarImage: `${config.img_src}${config.bot_avatar}`,
+    userAvatarImage: `${config.img_src}${config.user_avatar}`,
     botAvatarBackgroundColor: config.bot_avatar_background,
     userAvatarBackgroundColor: config.user_avatar_background,
     hideSendBox: false,
@@ -96,7 +95,7 @@ import config from "../config/configuration.js";
   const parent = document.getElementsByClassName('main');
   const childSend = parent[0].children[2].getElementsByTagName('svg');
   const imgSend = document.createElement("img");
-  imgSend.src = `./icons/${config.send_button}`;
+  imgSend.src = `${config.img_src}${config.send_button}`;
   childSend[0].replaceWith(imgSend);
 
   // ======== Replace SendBox placeHolder
@@ -122,7 +121,7 @@ import config from "../config/configuration.js";
   let newImg = document.createElement("img");
 
   let inImg = document.createAttribute("src");
-  inImg.value = `./icons/${config.menu_button}`;
+  inImg.value = `${config.img_src}${config.menu_button}`;
   newImg.setAttributeNode(inImg);
 
   newDiv.appendChild(newImg);
@@ -136,22 +135,27 @@ import config from "../config/configuration.js";
   button.replaceWith(newDiv);
 
 
-  //* set CSS variables
+  //* Set CSS variables
   document.documentElement.style.setProperty(`--header-bg`, config.header_color);
-  document.documentElement.style.setProperty(`--chat-button`, `url('${config.img_src}${config.chat_button}')`);
-  document.documentElement.style.setProperty(`--close-button`, `url('${config.img_src}${config.close_button}')`);
-  document.documentElement.style.setProperty(`--font-name`, `'${config.font_name}'`);
-  document.documentElement.style.setProperty(`--font-src`, `url('${config.font_src}')`);
+  document.documentElement.style.setProperty(`--chat-button`, `url('../icons/${config.chat_button}')`);
+  document.documentElement.style.setProperty(`--close-button`, `url('../icons/${config.close_button}')`);
+  document.documentElement.style.setProperty(`--font-name`, `${config.font_name}, Arial, Helvetica, sans-serif`);
+  document.documentElement.style.setProperty(`--font-size`, config.font_size);
+  document.documentElement.style.setProperty(`--btn-color`, config.btn_color);
 
-  //* add css styles
+  //* Add font family */
+  document.fonts.add(new FontFace(config.font_name, `url(${config.font_src})`));
+
+  //* Add css styles file
   let link = document.createElement("link");
   link.rel = "stylesheet";
   link.type = "text/css";
   link.href = config.css_src;
   document.body.appendChild(link);
 
-  //* add image and title on header
-  document.getElementById("image-header").src = `./icons/${config.bot_avatar}`
+  //* Add image and title on header
+  document.getElementById("image-header").src = `${config.img_src}${config.header_avatar}`
   document.getElementById("title-header").textContent = config.title_header;
+  document.getElementById("chat-powered").style = null
 
 })().catch(err => console.error(err));

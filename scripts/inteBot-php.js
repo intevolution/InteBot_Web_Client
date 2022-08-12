@@ -102,8 +102,8 @@ import config from "../config/configuration.js";
   // ============== Bot style options
   const styleOptions = {
     primaryFont: fontFamily([`${config.font_name}`, 'Arial', 'Helvetica', 'sans-serif']),
-    botAvatarImage: `../intebot/icons/${config.bot_avatar}`,
-    userAvatarImage: `../intebot/icons/${config.user_avatar}`,
+    botAvatarImage: `${config.img_src}${config.bot_avatar}`,
+    userAvatarImage: `${config.img_src}${config.user_avatar}`,
     botAvatarBackgroundColor: config.bot_avatar_background,
     userAvatarBackgroundColor: config.user_avatar_background,
     hideSendBox: false,
@@ -124,11 +124,11 @@ import config from "../config/configuration.js";
 
   document.querySelector('#inteBot > *').focus();
 
-  // ======== Send icon replacement whether exist Attachment icon
+  // ======== Send icon replacement whether exist attachment icon
   const parent = document.getElementsByClassName('main');
   const childSend = parent[0].children[2].getElementsByTagName('svg');
   const imgSend = document.createElement("img");
-  imgSend.src = `../intebot/icons/${config.send_button}`;
+  imgSend.src = `${config.img_src}${config.send_button}`;
   childSend[0].replaceWith(imgSend);
 
   // ======== Replace SendBox placeHolder
@@ -136,9 +136,9 @@ import config from "../config/configuration.js";
   sendBox[0].placeholder = 'Escriba aquí su pregunta';
 
   // ======== Burger menu button creation
-  var newDiv = document.createElement("button");
+  let newDiv = document.createElement("button");
 
-  var att = document.createAttribute("class");
+  let att = document.createAttribute("class");
   att.value = "css-1ueqw9g webchat__icon-button";
   newDiv.setAttributeNode(att);
 
@@ -151,10 +151,10 @@ import config from "../config/configuration.js";
   newDiv.setAttributeNode(att);
 
   // ======== Add image to button
-  var newImg = document.createElement("img");
+  let newImg = document.createElement("img");
 
-  var inImg = document.createAttribute("src");
-  inImg.value = "../intebot/icons/SandwichMenu.jpg";
+  let inImg = document.createAttribute("src");
+  inImg.value = `${config.img_src}${config.menu_button}`;
   newImg.setAttributeNode(inImg);
 
   newDiv.appendChild(newImg);
@@ -164,26 +164,31 @@ import config from "../config/configuration.js";
   }
 
   //======== Button replace
-  var button = document.getElementsByClassName("css-1ueqw9g webchat__icon-button")[0];
+  let button = document.getElementsByClassName("css-1ueqw9g webchat__icon-button")[0];
   button.replaceWith(newDiv);
 
 
-  //* set CSS variables
+  //* Set CSS variables
   document.documentElement.style.setProperty(`--header-bg`, config.header_color);
-  document.documentElement.style.setProperty(`--chat-button`, `url('${config.img_src}${config.chat_button}')`);
-  document.documentElement.style.setProperty(`--close-button`, `url('${config.img_src}${config.close_button}')`);
-  document.documentElement.style.setProperty(`--font-name`, `'${config.font_name}'`);
-  document.documentElement.style.setProperty(`--font-src`, `url('${config.font_src}')`);
+  document.documentElement.style.setProperty(`--chat-button`, `url('../icons/${config.chat_button}')`);
+  document.documentElement.style.setProperty(`--close-button`, `url('../icons/${config.close_button}')`);
+  document.documentElement.style.setProperty(`--font-name`, `${config.font_name}, Arial, Helvetica, sans-serif`);
+  document.documentElement.style.setProperty(`--font-size`, config.font_size);
+  document.documentElement.style.setProperty(`--btn-color`, config.btn_color);
 
-  //* add css styles
+  //* Add font family */
+  document.fonts.add(new FontFace(config.font_name, `url(${config.font_src})`));
+
+  //* Add css styles file
   let link = document.createElement("link");
   link.rel = "stylesheet";
   link.type = "text/css";
   link.href = config.css_src;
   document.body.appendChild(link);
 
-  //* add image and title on header
-  document.getElementById("image-header").src = `./icons/${config.bot_avatar}`
+  //* Add image and title on header
+  document.getElementById("image-header").src = `${config.img_src}${config.header_avatar}`
   document.getElementById("title-header").textContent = config.title_header;
+  document.getElementById("chat-powered").style = null
 
 })().catch(err => console.error(err));
