@@ -1,8 +1,16 @@
 let config = {
     // * Token */
-    secret_token: "",
+    secret_token: "CARwlR5khhM.pYQpo6bkYwtLc1cxNZQW65aPlzNd_xCT0hjL5YqyaoM",
 
-    // * Imagenes */
+    // * Scripts */
+    // ruta con la ubicación de los scripts
+    scripts_src: "./scripts/",
+
+    // * CSS*/
+    // ruta con la ubicación de la hoja de estilos
+    css_src: "css/inteBot.css",
+
+    // * Imágenes */
     // ruta con la ubicación de las imágenes
     img_src: "./icons/",
     // imagen del botón de chat
@@ -20,14 +28,18 @@ let config = {
     // icono para botón "menú"
     menu_button: "SandwichMenu.jpg",
 
+    // * Botones en ventana del chat*/
+    btn_color: "#27315d",
+
+    // * Color de fondo del chat*/
+    chat_background: "#fff",
+
     // * Encabezado */
     // título del encabezado
     title_header: "InteBot",
+    text_header_color: "#fff",
     header_color: "#27315d",
     header_avatar: "HeaderIcon.png",
-
-    // * Botones en ventana del chat*/
-    btn_color: "#27315d",
 
     // * Fuente */
     // ruta con la ubicación de la fuente
@@ -36,14 +48,6 @@ let config = {
     font_name: "Roboto-Regular",
     // tamaño de la fuente
     font_size: "1rem",
-
-    // * CSS*/
-    // ruta con la ubicación de la hoja de estilos
-    css_src: "css/inteBot.css",
-
-    // * Scripts */
-    // ruta con la ubicación de los scripts
-    scripts_src: "./scripts/"
 };
 
 export default config;

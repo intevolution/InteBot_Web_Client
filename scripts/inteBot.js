@@ -80,7 +80,8 @@ import config from "../config/configuration.js";
     userAvatarBackgroundColor: config.user_avatar_background,
     hideSendBox: false,
     hideUploadButton: false,
-    sendBoxTextWrap: true
+    sendBoxTextWrap: true,
+    backgroundColor: config.chat_background
   };
 
   // ============== WebChat Render
@@ -142,6 +143,7 @@ import config from "../config/configuration.js";
   document.documentElement.style.setProperty(`--font-name`, `${config.font_name}, Arial, Helvetica, sans-serif`);
   document.documentElement.style.setProperty(`--font-size`, config.font_size);
   document.documentElement.style.setProperty(`--btn-color`, config.btn_color);
+  document.documentElement.style.setProperty(`--text-header-color`, config.text_header_color);
 
   //* Add font family */
   document.fonts.add(new FontFace(config.font_name, `url(${config.font_src})`));

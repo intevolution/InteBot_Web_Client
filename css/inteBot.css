@@ -5,6 +5,7 @@
     --font-name: none;
     --font-size: none;
     --btn-color: #000;
+    --text-header-color: #000;
 }
 
 body {
@@ -42,6 +43,10 @@ body {
     width: 430px;
     z-index: 9010;
     background-color: var(--header-bg);
+}
+
+.headerInteBot > p {
+    color: var(--text-header-color);
 }
 
 .buttonCloseChat {
@@ -88,8 +93,9 @@ body {
 .botStatus:before {
     visibility: hidden;
 }
-.chat-powered {
+p.chat-powered {
     visibility: hidden;
+    color: #000;
 }
 
 .headerInteBot.open .moveBotIcon {
@@ -104,7 +110,6 @@ body {
     left: 95px;
     bottom: 50px;
     font-weight: bold;
-    color: white;
     font-family: var(--font-name);
     font-size: medium;
 }
@@ -113,7 +118,6 @@ body {
     position: relative;
     left: 100px;
     bottom: 60px;
-    color: white;
     font-family: var(--font-name);
     text-size-adjust: 12;
 }
