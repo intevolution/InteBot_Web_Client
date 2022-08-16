@@ -1,6 +1,6 @@
 let config = {
     // * Token */
-    secret_token: "CARwlR5khhM.pYQpo6bkYwtLc1cxNZQW65aPlzNd_xCT0hjL5YqyaoM",
+    secret_token: "",
 
     // * Scripts */
     // ruta con la ubicación de los scripts
