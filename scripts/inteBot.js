@@ -5,12 +5,14 @@ import config from "../config/configuration.js";
   // ====== direct line token
   const secret = config.secret_token;
 
-  const res = await fetch('https://directline.botframework.com/v3/directline/tokens/generate', {
-    headers: {
-      Authorization: `Bearer ${secret}`,
-    },
-    method: 'POST'
-  });
+  const res = await fetch('https://directline.botframework.com/v3/directline/tokens/generate',
+    {
+      headers: {
+        Authorization: `Bearer ${secret}`,
+      },
+      method: 'POST'
+    }
+  );
   const { token } = await res.json();
 
   // ============== Store for send messages to bot and Welcome message

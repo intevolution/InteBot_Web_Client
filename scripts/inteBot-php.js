@@ -1,4 +1,3 @@
-
 import config from "../config/configuration.js";
 
 (async function () {
@@ -15,23 +14,27 @@ import config from "../config/configuration.js";
 
   if (!conversationId) {
     // generate token and conversation
-    const res = await fetch('https://directline.botframework.com/v3/directline/tokens/generate', {
-      headers: {
-        Authorization: `Bearer ${secret}`,
-      },
-      method: 'POST'
-    });
+    const res = await fetch('https://directline.botframework.com/v3/directline/tokens/generate',
+      {
+        headers: {
+          Authorization: `Bearer ${secret}`,
+        },
+        method: 'POST'
+      }
+    );
     const result = await res.json();
     token = result.token
     sessionStorage.setItem("conversationId", result.conversationId);
   } else {
     // reconnect conversation
-    const res = await fetch(`https://directline.botframework.com/v3/directline/conversations/${conversationId}`, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${secret}`,
-      },
-    });
+    const res = await fetch(`https://directline.botframework.com/v3/directline/conversations/${conversationId}`, 
+      {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${secret}`,
+        },
+      }
+    );
 
     const result = await res.json();
     token = result.token
@@ -67,9 +70,7 @@ import config from "../config/configuration.js";
     // ============== Event to delete messages     
     if (type === 'event') {
       if (data.channelData.data === 'disableButtons') {
-
         Array.from(document.getElementsByClassName("ac-pushButton")).forEach(element => {
-
           // ===== Disable
           element.disabled = 'none';
           element.style.backgroundColor = "lightgrey";

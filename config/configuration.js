@@ -6,26 +6,37 @@ let config = {
     // ruta con la ubicación de los scripts
     scripts_src: "./scripts/",
 
-    // * CSS*/
+    // * CSS */
     // ruta con la ubicación de la hoja de estilos
     css_src: "css/inteBot.css",
 
     // * Imágenes */
     // ruta con la ubicación de las imágenes
     img_src: "./icons/",
-    // imagen del botón de chat
+
+    // * Botón de apertura del chat */
+    // imagen del botón
     chat_button: "ChatButton.png",
-    // icono de cerrar el chat
+
+    // * Icono de cerrar el chat */
     close_button: "CloseIcon.png",
-    // avatar del bot
+
+    // * Avatar del bot */
+    // icono
     bot_avatar: "HeaderIcon.png",
+    // color de fondo del icono
     bot_avatar_background: "#27315d",
-    // avatar del usuario
+
+    // * Avatar del usuario */
+    // icono
     user_avatar: "UserIcon.png",
+    // color de fondo del icono
     user_avatar_background: "#96aec3",
-    // icono para botón "enviar"
+
+    // * Icono para botón "enviar" */
     send_button: "SendIcon.png",
-    // icono para botón "menú"
+
+    // * Icono para botón "menú" */
     menu_button: "SandwichMenu.jpg",
 
     // * Botones en ventana del chat*/
