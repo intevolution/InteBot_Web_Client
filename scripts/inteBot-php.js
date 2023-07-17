@@ -1,8 +1,9 @@
 import config from "../config/configuration.js";
 
 (async function () {
-  if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
-    sessionStorage.removeItem("conversationId");
+  const navigationEntries = window.performance.getEntriesByType("navigation");
+  if (navigationEntries.length && navigationEntries[0].type === "reload") {
+      sessionStorage.removeItem("conversationId");
   }
 
   // ====== direct line token
